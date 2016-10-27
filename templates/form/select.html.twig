@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme override for a select element.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the select tag.
+ * - options: The option element children.
+ *
+ * @see template_preprocess_select()
+ */
+#}
+
+<link rel="import" href="/themes/custom/cruftless/bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="/themes/custom/cruftless/bower_components/paper-item/paper-item.html">
+
+{% spaceless %}
+  <paper-listbox{{ attributes }} attr-for-selected="value">
+    {% for option in options %}
+      {% if option.type == 'optgroup' %}
+        <optgroup label="{{ option.label }}">
+          {% for sub_option in option.options %}
+            <paper-item value="{{ sub_option.value }}"{{ sub_option.selected ? ' selected="selected"' }}>{{ option.label }} - {{ sub_option.label }}</paper-item>
+          {% endfor %}
+        </optgroup>
+      {% elseif option.type == 'option' %}
+        <paper-item value="{{ option.value }}"{{ option.selected ? ' selected="selected"' }}>{{ option.label }}</paper-item>
+      {% endif %}
+    {% endfor %}
+  </paper-listbox>
+{% endspaceless %}

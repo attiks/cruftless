@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Theme override for the administrative toolbar.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - toolbar_attributes: HTML attributes to apply to the toolbar.
+ * - toolbar_heading: The heading or label for the toolbar.
+ * - tabs: List of tabs for the toolbar.
+ *   - attributes: HTML attributes for the tab container.
+ *   - link: Link or button for the menu tab.
+ * - trays: Toolbar tray list, each associated with a tab. Each tray in trays
+ *   contains:
+ *   - attributes: HTML attributes to apply to the tray.
+ *   - label: The tray's label.
+ *   - links: The tray menu links.
+ * - remainder: Any non-tray, non-tab elements left to be rendered.
+ *
+ * @see template_preprocess_toolbar()
+ */
+#}
+
+<link rel="import" href="/themes/custom/cruftless/bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="/themes/custom/cruftless/bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="/themes/custom/cruftless/bower_components/paper-input/paper-input.html">
+
+
+<div{{ attributes.addClass('toolbar') }}>
+  <paper-toolbar{{ toolbar_attributes.addClass('toolbar-bar') }}>
+    <h2 class="visually-hidden">{{ toolbar_heading }}</h2>
+    {% for key, tab in tabs %}
+      {% set tray = trays[key] %}
+      {% spaceless %}
+          {% if tray.label %}
+            <paper-dropdown-menu{{ tab.attributes.addClass('toolbar-tab') }} label="{{ tray.label }}">
+              <paper-listbox class="dropdown-content">
+          {% else %}
+            <paper-dropdown-menu{{ tab.attributes.addClass('toolbar-tab') }} label="XXX">
+              <paper-listbox class="dropdown-content">
+          {% endif %}
+          {{ tray.links }}
+        </paper-listbox>
+        </paper-dropdown-menu>
+      {% endspaceless %}
+    {% endfor %}
+  </paper-toolbar>
+  {{ remainder }}
+</div>

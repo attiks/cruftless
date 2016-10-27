@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+<link rel="import" href="/themes/custom/cruftless/drupal-elements/drupal-submit/drupal-submit.html">
+
+<style shim-shadowdom>
+  paper-button {
+    padding:0;
+  }
+  paper-button::shadow .button-content {
+    padding:0;
+  }
+  paper-button button {
+    padding:1em;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  paper-button button::-moz-focus-inner {
+    border: 0;
+  }
+</style>
+<drupal-submit><input {{ attributes }}></drupal-submit>

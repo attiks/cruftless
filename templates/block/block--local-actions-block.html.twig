@@ -1,0 +1,14 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ * @file
+ * Theme override for local actions (primary admin actions.)
+ */
+#}
+
+{% block content %}
+  <link rel="import" href="/themes/custom/cruftless/bower_components/paper-menu/paper-menu.html">
+  {% if content %}
+    <paper-menu>{{ content }}</paper-menu>
+  {% endif %}
+{% endblock %}
