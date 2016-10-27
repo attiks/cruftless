@@ -1,0 +1,26 @@
+{
+  "name": "cruftless",
+  "dependencies": {
+    "iron-elements": "^1.0.10",
+    "polymer": "^1.7.0",
+    "paper-toolbar": "^1.1.7",
+    "paper-listbox": "^1.1.2",
+    "paper-item": "^1.2.1",
+    "paper-checkbox": "^1.4.1",
+    "gold-email-input": "^1.0.7",
+    "paper-radio-button": "^1.2.1",
+    "iron-range-behavior": "^1.0.6",
+    "gold-phone-input": "^1.1.0",
+    "iron-autogrow-textarea": "^1.0.14",
+    "paper-radio-group": "^1.2.1",
+    "iron-selector": "^1.5.2",
+    "iron-label": "^1.0.2",
+    "ugo-fieldset": "display-interactive/ugo-fieldset",
+    "paper-input": "^1.1.20",
+    "iron-swipeable-container": "^1.0.3",
+    "paper-tabs": "^1.6.3",
+    "paper-menu": "^1.2.2",
+    "paper-dropdown-menu": "^1.4.1",
+    "paper-toast": "^1.3.0"
+  }
+}
